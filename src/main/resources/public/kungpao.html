@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>myboDick</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
+
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a href="#" class="first">Home</a></li>
+				<li class="current_page_item"><a href="#">Blog</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+		<!-- end #menu -->
+		<div id="search">
+			<form method="get" action="#">
+				<fieldset>
+					<input type="text" name="s" id="search-text" size="15" />
+					<input type="submit" id="search-submit" value="GO" />
+				</fieldset>
+			</form>
+		</div>
+		<!-- end #search -->
+	</div>
+</div>
+<script type="text/javascript">
+    function show()
+    {
+        var box = document.getElementById("box");
+        var text = box.innerHTML;
+        var newBox = document.createElement("div");
+        var btn = document.createElement("a");
+        newBox.innerHTML = text.substring(0,20);
+        btn.innerHTML = text.length > 20 ? "...more" : "";
+        btn.href = "###";
+        btn.onclick = function(){
+            if(btn.innerHTML == "...more")
+            {
+                btn.innerHTML = "hide";
+                newBox.innerHTML = text;
+            }
+            else
+            {
+                btn.innerHTML = "...more";
+                newBox.innerHTML = text.substring(0,20);
+            }
+        }
+        box.innerHTML = "";
+        box.appendChild(newBox);
+        box.appendChild(btn);
+    }
+window.onload=function()
+{
+    show();
+}
+</script>
+<!-- end #header -->
+<!-- end #header-wrapper -->
+<div id="logo">
+	<h1><a href="#">myboDick  </a></h1>
+	<p><em> Design <a href="#">Jian Ren</a></em></p>
+</div>
+<hr />
+<!-- end #logo -->
+<div id="page">
+	<div id="page-bgtop">
+		<div id="content">
+			<div class="post">
+
+				<h2 class="title"><a href="#">Welcome to myboDick  </a></h2>
+				
+			</div>
+			
+			<div class="post">
+                <p class="meta"><span class="date">Sunday, April 1, 2013</span> 8:08 PM Posted by <a href="profile.html">Jian Ren</a></p>
+				<h2 class="title"><a href="kungpao.html">KungPao Chicken</a></h2>
+				<div class="entry">
+                    <p><img src="images/result2.jpg" alt="" /></p>
+                    <p>Ingredients：<br>
+                    The breast meat 250 grams, peanut 50 grams, garlic 2 pieces, ginger 3 pieces, onion 1 piece, pimiento 3 pieces, Chinese prickly ash 10 unit, edible oil.
+                    Seasoning：<br>
+                    A big spoon of vinegar , A big spoon of sugar,  A big spoon of soy, Big spoon of mirrin, Big spoon of gravy, A spoon of starch , a little salt.</p>
+                    <p>Method：
+                    1, Fried peanuts first.  Add just the right amount of edible oil to pot (Can over the peanuts),Pour the peanuts when temperature of edible oil is drop. Heat it with medium heat and stir the peanuts.
+                    2. Take out peanuts when it is discolored after oil warm. Dry the peanuts and sprinkle a little salt and sugar, then cool it. But remember that donot overdo frying.
+                    3. Keep flat the breast meat on chopping board pat it use kitchen knife. Then cut the breast meat as 2cm per piece and put in the bowl. Add big spoon of soy, spoon of starch and spoon of oil. And stir.
+                    4. Cut the pimiento as 2cm per piece, onion 1cm per piece, wash and cut the garlic.Mix all the
+                    Seasoning to gather in a bowl.
+                    5.  Heat the pot use "high" and pour the right among of oil , then pour pimientos and Chinese prickly ashs in the pot. Put the diced meat in pot 3mins later.
+                    6. Add gingers, garlic,onion to make fragrance. Then add the Seasoning which you gathered and fry it equably.
+                    7.Put the peanuts you fried it already in pot.  Finish at few mins later.</p>
+				</div>
+			</div>
+            <div><p><a href="index.html">back</a></p></div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>I am lovin't</h2>
+					<p>mobyDick is a website for those who want to study how to cook and communicate experience about cooking. Here you can find what you like, also you can share what you like here</p>
+				</li>
+				<li>
+					<h2>Latest recipes </h2>
+					<ul>
+						<li><a href="orange.html">Orange Chicken</a></li>
+						<li><a href="kungpao.html">KuangPao Chicken</a></li>
+						<li><a href="generaltso.html">General Tso's Chicken'</a></li>
+						<li><a href="#">ahhh</a></li>
+						<li><a href="#">not at all</a></li>
+						<li><a href="#">need more</a></li>
+					</ul>
+				</li>
+				<li>
+					<h2>You May Like</h2>
+                    <ul>
+                        <li><a href="orange.html">Orange Chicken</a></li>
+                        <li><a href="kungpao.html">KuangPao Chicken</a></li>
+                        <li><a href="generaltso.html">General Tso's Chicken'</a></li>
+                        <li><a href="#">ahhh</a></li>
+                        <li><a href="#">not at all</a></li>
+                        <li><a href="#">need more</a></li>
+                    </ul>
+				</li>
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Jian Ren. Future Google CEO.</p>
+	</div>
+	<!-- end #footer -->
+</div>
+</body>
+</html>
