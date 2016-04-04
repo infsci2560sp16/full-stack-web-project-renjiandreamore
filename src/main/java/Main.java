@@ -18,8 +18,69 @@ public class Main {
   public static void main(String[] args) {
 
     port(Integer.valueOf(System.getenv("PORT")));
+	//port(8888);
     staticFileLocation("/public");
-
+    UserDB db = new UserDB();
+    db.DefaultDB();
+    get("/profile", (req, res) -> {
+        Map<String, Object> attributes = new HashMap<>();
+        try{
+        	attributes.put("latest", true);
+        	attributes.put("title", "Latest Recipe");
+        	attributes.put("recipes", new String[]{"Orange Chicken", "General Tso's Chicken", "Mapo Dofu"});
+        	return new ModelAndView(attributes, "profile.ftl");
+        } catch (Exception e) {
+            attributes.put("message", "There was an error: " + e);
+            return new ModelAndView(attributes, "error.ftl");
+        }
+    }, new FreeMarkerEngine());
+    
+    get("/json/:id", (req, res) -> {
+        Map<String, Object> attributes = new HashMap<>();
+        String id = req.params(":id");
+        User usr = db.Find(id);
+        try{
+        	attributes.put("method", "get");
+        	attributes.put("result", usr.JSON());
+        	return new ModelAndView(attributes, "json.ftl");
+        }catch (Exception e) {
+            attributes.put("message", "There was an error: " + e);
+            return new ModelAndView(attributes, "error.ftl");
+        }
+    }, new FreeMarkerEngine());
+    
+    post("/register", (req, res) -> {
+        Map<String, Object> attributes = new HashMap<>();
+        attributes.put("result", true);
+        String name = req.queryParams("name");
+        String gender = req.queryParams("gender");
+        db.addUser(name, gender);
+        User usr = db.FindbyName(name);
+        try{
+        	attributes.put("method", "post");
+        	attributes.put("result", usr.JSON());
+        	return new ModelAndView(attributes, "json.ftl");
+        }catch (Exception e) {
+            attributes.put("message", "There was an error: " + e);
+            return new ModelAndView(attributes, "error.ftl");
+        }
+    }, new FreeMarkerEngine());
+    
+    
+    get("/xml/:id", (req, res) -> {
+        Map<String, Object> attributes = new HashMap<>();
+        attributes.put("result", true);
+        String id = req.params(":id");
+        User usr = db.Find(id);
+        try{
+        	attributes.put("result", usr.XML());
+        	return new ModelAndView(attributes, "xml.ftl");
+        }catch (Exception e) {
+            attributes.put("message", "There was an error: " + e);
+            return new ModelAndView(attributes, "error.ftl");
+        }
+    }, new FreeMarkerEngine());  
+    
     get("/db", (req, res) -> {
       Connection connection = null;
       Map<String, Object> attributes = new HashMap<>();
